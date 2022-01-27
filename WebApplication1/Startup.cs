@@ -35,6 +35,11 @@ namespace WebApplication1
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+                endpoints.MapControllerRoute(
+                    //added custom route here for FeverCheck view from Doctor controller 
+                    name: "FeverCheck",
+                    pattern: "FeverCheck", 
+                    defaults: new { controller = "Doctor", Action = "FeverCheck" });
 
 
                 //endpoints.MapGet("/", async context =>
