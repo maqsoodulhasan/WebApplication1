@@ -1,0 +1,39 @@
+﻿body {
+    margin: 0px;
+    padding:0px;
+   
+}
+
+.container {
+   display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+   align-items: normal;
+    border: solid 1px black;
+    width: 100vw;
+    height: 100vh;
+    font-family: sans-serif;
+    gap: 1px;
+    padding: 1px;
+    justify-content: center;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.info{
+  background-color:aliceblue;
+}
+.list {
+    background-color:antiquewhite;
+}
+    
+.message {
+   background-color:azure;
+}
+
+
