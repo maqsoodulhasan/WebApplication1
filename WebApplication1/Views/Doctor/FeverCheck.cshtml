@@ -13,12 +13,13 @@
 
     <form asp-controller="Doctor" asp-action="FeverCheck" method="post">
 
-        <p>Please select Temperature Unit:</p>
-        <input type="radio" id="cl" name="TempUnit" value="Celcius">
-        <label for="cl">Celcius</label><br>
-        <input type="radio" id="FH" name="TempUnit" value="Fahrenheit">
-        <label for="FH">Fahrenheit</label><br>
-        <label>Enter Temperature</label>
+        @*<p>Please select Temperature Unit first:</p>*@
+        <p>@Html.Label("Please select Temperature Unit first:")</p>
+        Celcius:@Html.RadioButton("TempUnit", "Celcius")<br />
+        Fahrenheit:@Html.RadioButton("TempUnit", "Fahrenheit")<br />
+        <br />
+
+        @Html.Label("Enter Temperature")
 
         <input type="number" step="1" min="20" max="110" name="temp">
         <br>
