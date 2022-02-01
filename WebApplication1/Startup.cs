@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
 
 namespace WebApplication1
 {
@@ -17,6 +18,8 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSession();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,6 +30,7 @@ namespace WebApplication1
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -35,12 +39,18 @@ namespace WebApplication1
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                     );
+
                 endpoints.MapControllerRoute(
                     //added custom route here for FeverCheck view from Doctor controller 
                     name: "FeverCheck",
                     pattern: "FeverCheck", 
                     defaults: new { controller = "Doctor", Action = "FeverCheck" });
 
+                endpoints.MapControllerRoute(
+                    //added custom route here for GuessingGame view from Home controller 
+                    name: "GuessingGame",
+                    pattern: "GuessingGame",
+                    defaults: new { controller = "Home", Action = "GuessingGame" });
 
                 //endpoints.MapGet("/", async context =>
                 //{

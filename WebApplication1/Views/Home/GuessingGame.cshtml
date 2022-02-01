@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models
+
+
+@{
+    ViewData["Title"] = "GuessGame";
+}
+<link rel="stylesheet" href="~/css/Index.css" type="text/css" />
+<div class="container">
+    <h1>Guessing Game</h1>
+
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Random</p>
+        <p>@ViewBag.Message</p>
+        @if(GuessModel.AttemptCounter != 0)
+        {
+            <p>You have attempted @ViewBag.Attempts times.</p>   
+        }
+    }
+  
+    <form asp-controller="Home" asp-action="GuessingGame" method="post">
+
+        
+        <p>@Html.Label("Enter your guess between 1-100:")</p>
+        
+        <input type="number" step="1" min="1" max="100" name="guess">
+        <br>
+        <p></p>
+
+        <input type="submit" value="Check Guess" />
+
+
+    </form>
+</div>
+
+
